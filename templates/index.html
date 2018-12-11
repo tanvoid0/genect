@@ -1,40 +1,60 @@
-{% extends "bootstrap/base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gender Detection</title>
+    {#    <link rel="stylesheet" href="css/style.css">#}
+    <link rel="stylesheet"
+          href="{{ url_for('.static', filename='css/style.css') }}">
 
-<div class="container">
-  <div class="jumbotron" style="background-color:#ff1d43 !important;">
-    <h2 style="color:rgb(255, 255, 255);">Gender Classifier</h2>      
-    <p style="color:#fff;">Using Machine Learning to Classify Gender</p>
-  </div>
-  <p>ML App.</p>           
-</div>
+</head>
 
-
-<div class="panel-group">
-    <div class="panel panel-primary">
-      <div class="panel-heading" style="background-color:#15ffc4 ">Gender Classifier</div>
-      <div class="panel-body">
-      
-<!-- Main Input For Receiving Query to our ML -->	
-      	<form action="{{ url_for('predict')}}" method="POST">
-			<input type="text" name="namequery">
-			<button type="submit" class="btn btn-primary">Predict</button>
-			</form>
-
-<!-- Main Input For Receiving Query to our ML --> 
-
-
-      </div>
+<body>
+<div class="window">
+    <div class="bar">
+        <div class="button"></div>
     </div>
+    <form class="search" action="{{ url_for('predict') }}" method="POST">
+        <input type="search" name="namequery" placeholder="Detect gender...">
+{#        <button type="submit" class="btn btn-primary">Predict</button>#}
 
+    </form>
+    {% if request.method == 'POST' %}
+    <div class="card text-center">
+        <div class="card-header">
+            Results
+        </div>
+        <div class="card-body" style="background-color:#ff1d61;">
+            <h5 class="card-title">Gender Classifier</h5>
+            <hr/>
+            <p class="card-text">
+            <div class="alert alert-danger" role="alert">
+                {{ name }}
+            </div>
+            </p>
 
+            <!-- Main ML Prediction Display Here -->
+            {% if prediction ==  0 %}
+                <p class="card-text">
+                <div class="alert alert-danger" role="alert">
+                    Female
+                </div></p>
+                <a href="#" class="btn btn-danger">Female</a>
+            {% elif prediction == 1 %}
+                <p class="card-text">
+                <div class="alert alert-danger" role="alert">
+                    Male
+                </div></p>
+                <a href="#" class="btn btn-primary">Male</a>
+            {% endif %}
+        </div>
 
+        <!-- Main ML Prediction Display Ends Here -->
+        <div class="card-footer text-muted">
 
-{% endblock %}
-
-{% block styles %}
-{{super()}} <!-- Allows Javascripts and other styles to be inclusive in bootstrap -->
-<link rel="stylesheet"
-      href="{{url_for('.static', filename='css/styles.css')}}">
-{% endblock %}
-
+        </div>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

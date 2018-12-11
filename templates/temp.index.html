@@ -1,0 +1,63 @@
+{#{% extends "bootstrap/base.html" %}#}
+{#{% block content %}#}
+{##}
+{#<div class="container">#}
+{#  <div class="jumbotron" style="background-color:#ff1d43 !important;">#}
+{#    <h2 style="color:rgb(255, 255, 255);">Gender Classifier</h2>      #}
+{#    <p style="color:#fff;">Using Machine Learning to Classify Gender</p>#}
+{#  </div>#}
+{#  <p>ML App.</p>           #}
+{#</div>#}
+{##}
+{##}
+{#<div class="panel-group">#}
+{#    <div class="panel panel-primary">#}
+{#      <div class="panel-heading" style="background-color:#15ffc4 ">Gender Classifier</div>#}
+{#      <div class="panel-body">#}
+{#      #}
+{#<!-- Main Input For Receiving Query to our ML -->	#}
+{#      	<form action="{{ url_for('predict')}}" method="POST">#}
+{#			<input type="text" name="namequery">#}
+{#			<button type="submit" class="btn btn-primary">Predict</button>#}
+{#			</form>#}
+{##}
+{#<!-- Main Input For Receiving Query to our ML --> #}
+{##}
+{##}
+{#      </div>#}
+{#    </div>#}
+{##}
+{##}
+{##}
+{##}
+{#{% endblock %}#}
+{##}
+{#{% block styles %}#}
+{#{{super()}} <!-- Allows Javascripts and other styles to be inclusive in bootstrap -->#}
+{#<link rel="stylesheet"#}
+{#      href="{{url_for('.static', filename='css/styles.css')}}">#}
+{#{% endblock %}#}
+{##}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Awesome Search Box</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  </head>
+  <!-- Coded with love by Mutiullah Samim-->
+  <body>
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Search...">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  <link rel="stylesheet"
+      href="{{url_for('.static', filename='css/styles.css')}}">
+  </body>
+</html>

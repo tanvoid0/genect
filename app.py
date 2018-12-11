@@ -38,7 +38,7 @@ def predict():
 		data = [namequery]
 		vect = cv.transform(data).toarray()
 		my_prediction = clf.predict(vect)
-	return render_template('results.html',prediction = my_prediction,name = namequery.upper())
+	return render_template('index.html',prediction = my_prediction,name = namequery.upper())
 
 
 if __name__ == '__main__':
